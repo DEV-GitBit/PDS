@@ -1,0 +1,158 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Distribution System</title>
+
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <!-- Logo and Name -->
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="{% static 'logo.png' %}" alt="Logo" width="400" height="80" class="d-inline-block align-text-top">
+            </a>
+        </div>
+
+        <!-- Main Navbar -->
+        <div class="container-fluid">
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active text-decoration-none" href="#">
+                            <img src="{% static 'icons/fps.jpg' %}" alt="Fair Price Shop">
+                        </a>
+                        <p><a href="#" class="text-decoration-none text-dark">Price Shop</a></p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-decoration-none" href="#">
+                            <img src="{% static 'icons/ration_card.jpg' %}" alt="Ration Card">
+                        </a>
+                        <p><a href="#" class="text-decoration-none text-dark">Ration Card</a></p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-decoration-none" href="#">
+                            <img src="{% static 'icons/citizen_corner.jpg' %}" alt="Citizen Corner">
+                        </a>
+                        <p><a href="#" class="text-decoration-none text-dark">Citizen Corner</a></p>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active text-decoration-none" href="#">
+                            <img src="{% static 'icons/d.b.t.jpg' %}" alt="D.B.T">
+                        </a>
+                        <p><a href="#" class="text-decoration-none text-dark">D.B.T Dashboard</a></p>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+<!-- small navbar -->
+<!-- Small Navbar -->
+<!-- Small Navbar -->
+<!-- Small Navbar -->
+<!-- Small Navbar -->
+<!-- Small Navbar -->
+
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container d-flex justify-content-center py-2">
+        <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                    <a class="nav-link text-primary" href="{% url 'User:home' %}">Home</a>
+                </li>
+                {% if not user.beneficiary.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="{% url 'User:login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="{% url 'User:signup' %}">Signup</a>
+                    </li>
+                {% elif user.beneficiary_type == 'fps' or user.beneficiary_type == 'superuser' %}
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="{% url 'User:add_ration' %}">Add Ration</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="{% url 'User:logout' %}">Logout</a>
+                    </li>
+                {% elif user.beneficiary_type == 'user' %}
+                    <li class="nav-item">
+                        <a class="nav-link text-primary" href="{% url 'User:logout' %}">Logout</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
+
+    
+
+    <!-- Page Content -->
+    {% block body %}
+    {% endblock %}
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light pt-4">
+        <div class="container">
+            <!-- Top Section -->
+            <div class="row">
+                <div class="col-md-6">
+                    <h6>CENTRAL MINISTRY</h6>
+                    <ul class="list-unstyled">
+                        <li>Andaman and Nicobar Island</li>
+                        <li>Andhra Pradesh</li>
+                        <li>Arunachal Pradesh</li>
+                        <li>Assam</li>
+                        <li>Bihar</li>
+                        <!-- Add more states as needed -->
+                    </ul>
+                </div>
+                <div class="col-md-6">
+                    <ul class="list-unstyled">
+                        <li>Madhya Pradesh</li>
+                        <li>Maharashtra</li>
+                        <li>Manipur</li>
+                        <li>Meghalaya</li>
+                        <li>Mizoram</li>
+                        <!-- Add more states as needed -->
+                    </ul>
+                </div>
+            </div>
+            <hr class="text-white">
+            <!-- Middle Section -->
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <a href="#" class="text-white me-3">Terms of Use</a>
+                    <a href="#" class="text-white me-3">Privacy Policy</a>
+                    <a href="#" class="text-white me-3">Help</a>
+                    <a href="#" class="text-white">Contact Us</a>
+                </div>
+            </div>
+            <hr class="text-white">
+            <!-- Bottom Section -->
+            <div class="row align-items-center">
+                <div class="col-md-8">
+                    <p class="mb-0">
+                        © Copyright NIC 2024. This site is designed, developed, and hosted by National Informatics Centre, 
+                        Ministry of Electronics & Information Technology, Government of India.
+                    </p>
+                </div>
+                <div class="col-md-4 text-end">
+                    <a href="#" class="btn btn-success btn-sm me-2">Need Help? Ask NICCI</a>
+                    <span class="badge bg-warning text-dark">044763414</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap and JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

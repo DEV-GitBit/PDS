@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% block body %}
+<!-- Forgot Password Page -->
+<div class="container mt-5 login-gap">
+    <div class="row justify-content-center">
+      <div class="col-md-4 col-sm-8">
+        <div class="card shadow-sm" style="max-width: 22rem; margin: auto;">
+          <div class="card-body">
+            <h4 class="card-title text-center mb-4">Forgot Password</h4>
+            <form>
+              <!-- Phone Number -->
+              <div class="mb-3">
+                <label for="phone" class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="phone" placeholder="Enter your phone number" required>
+              </div>
+              <!-- Get OTP Button -->
+              <div class="mb-3 d-flex justify-content-between">
+                <input type="text" class="form-control me-2" id="otp" placeholder="Enter OTP" style="flex: 2;">
+                <button type="button" class="btn btn-outline-primary" style="flex: 1;">Get OTP</button>
+              </div>
+              <!-- Submit Button -->
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

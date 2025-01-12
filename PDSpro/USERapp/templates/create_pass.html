@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+{% block body %}
+
+<div class="container mt-5 login-gap">
+    <div class="row justify-content-center">
+      <div class="col-md-4 col-sm-8">
+        <div class="card shadow-sm" style="max-width: 22rem; margin: auto;">
+          <div class="card-body">
+            <h4 class="card-title text-center mb-4">Create new Password</h4>
+            <form>
+              <!-- Password -->
+              <div class="mb-3">
+                <label for="password" class="form-label">Create new Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Create a password" required>
+              </div>
+              <!-- Re-enter Password -->
+              <div class="mb-3">
+                <label for="confirmPassword" class="form-label">Re-enter Password</label>
+                <input type="password" class="form-control" id="confirmPassword" placeholder="Re-enter your password" required>
+              </div>
+              <!-- Save Button -->
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Save</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
